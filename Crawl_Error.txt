@@ -1,0 +1,11 @@
+Lỗi gặp phải trong quá trình crawl:
+- Crawl thiếu link: Mỗi page https://www.kaggle.com/competitions?page=2 thường 
+sẽ có 20 link bài thi nhưng khi crawl lại thiếu mất vài link, đã thử cách đợi khác implicitly wait nhưng không hiệu quả 
+https://stackoverflow.com/questions/26566799/wait-until-page-is-loaded-with-selenium-webdriver-for-python
+- 429 too many request: lỗi khiến data rơi nhiều nhất
+- Crawl thiếu dữ liệu của cuộc thi do sử dụng multithread không hiệu quả, dù dùng 4 thread để crawl nhưng vẫn khá chậm 
+(563 bài trong 3110 giây) 
+- Kaggle đã update không lấy được link solution thông qua HTML, click vào tới tận nơi mới lấy 
+(đã fix, sử dụng xpath thông qua số lượt comment để lấy link, không lấy /comments ở cuối là được link
+tới solution) 
+- Dùng proxy gây ra timeout ở nhiều request
